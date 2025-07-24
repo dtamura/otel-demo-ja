@@ -2,9 +2,11 @@
 
 This service consumes new orders from a Kafka topic.
 
+**Note**: This service has been reimplemented in Go. See `../accounting-go/` for the Go version.
+
 ## Local Build
 
-To build the service binary, run:
+To build the C# service binary, run:
 
 ```sh
 mkdir -p src/accounting/proto/ # root context

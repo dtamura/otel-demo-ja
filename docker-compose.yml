@@ -31,7 +31,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 120M
+          memory: 64M
     restart: unless-stopped
     environment:
       - KAFKA_ADDR
@@ -39,8 +39,7 @@ services:
       - OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
       - OTEL_RESOURCE_ATTRIBUTES
       - OTEL_SERVICE_NAME=accounting
-      - DB_CONNECTION_STRING=Host=postgresql;Username=otelu;Password=otelp;Database=otel
-      - OTEL_DOTNET_AUTO_TRACES_ENTITYFRAMEWORKCORE_INSTRUMENTATION_ENABLED=false
+      - DB_CONNECTION_STRING=host=postgresql user=otelu password=otelp dbname=otel sslmode=disable
     depends_on:
       otel-collector:
         condition: service_started
